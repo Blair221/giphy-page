@@ -1,8 +1,34 @@
 $(function() {
-  var animeArray = ['luffy', 'naruto', 'goku', 'Deku'];
+  var animeArray = ["luffy", "naruto", "goku", "Deku"];
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=";
-  var search = "luffy";
+  var search = $("input")
+    .val()
+    .trim();
   var apiKey = "&api_key=7kDTo2sTD91Ik3wn177f3iUtDZAPeUvy&limit=10";
+
+  var createButtons = function() {
+    $("#anime-buttons").empty();
+    for (let i = 0; i < animeArray.length; i++) {
+      var newCharacter = $("<button class='mx-2 btn-outline-danger'>");
+      newCharacter.text(animeArray[i]);
+      $("#anime-buttons").append(newCharacter);
+    }
+    $('input').text('');
+  };
+  $("#submit-button").on("click", function() {
+    event.preventDefault();
+    var search = $("input")
+      .val()
+      .trim();
+
+    if (search !== "" && search.length > 1) {
+      animeArray.push(search);
+    }
+
+    createButtons();
+    
+  });
+  createButtons();
   $.ajax({
     url: queryURL + search + apiKey,
     method: "GET"
