@@ -20,16 +20,39 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 container">
-          <div class="row">
-            <div class="col-md-9 card">
-              <div class="card-header">
-                <h4>Gifs</h4>
-              </div>
-              <div id="gifs"></div>
+        <div class="col-md-12 my-4">
+          <div class="card-header border-danger"><h4>Anime Characters</h4></div>
+          <div class="card-body" id="anime-buttons">hello world</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-danger">
+            <div class="card-header border-danger">
+              <h4>Gifs</h4>
             </div>
+            <div id="gifs"></div>
           </div>
         </div>
+        <div class="col-md-6">
+            <div class="card border-danger">
+              <div class="card-header border-danger">
+                <h4>Search for an anime character</h4>
+              </div>
+              <div id="search-value">
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Anime Character!" aria-label="Anime Character!" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-danger" type="button" id="button-addon2">Submit</button>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     <script src="assets/javascript/javascript.js"></script>

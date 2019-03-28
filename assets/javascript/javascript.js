@@ -1,6 +1,7 @@
 $(function() {
+  var animeArray = ['luffy', 'naruto', 'goku', 'Deku'];
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=";
-  var search = "rick+and+morty";
+  var search = "luffy";
   var apiKey = "&api_key=7kDTo2sTD91Ik3wn177f3iUtDZAPeUvy&limit=10";
   $.ajax({
     url: queryURL + search + apiKey,
@@ -11,7 +12,7 @@ $(function() {
     var gifDiv = $("#gifs");
     for (let i = 0; i < gifs.length; i++) {
       if (gifs.ratings !== "r" && gifs.ratings !== "pg-13") {
-        var stillImgUrl = gifs[i].images.fixed_height_still.url;
+        var stillImgUrl = gifs[i].images.fixed_width.url;
         console.log(stillImgUrl);
 
         var newGif = $("<img class='card-img-top'>");
