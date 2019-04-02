@@ -20,8 +20,10 @@ $(function() {
     var search = $("input")
       .val()
       .trim();
-
-    if (search !== "" && search.length > 1) {
+    if (animeArray.includes(search)) {
+      alert("This anime character already has a button!")
+    }
+    else if ((search !== "") && (search.length > 1)) {
       animeArray.push(search);
     }
 
@@ -38,11 +40,12 @@ $(function() {
     var gifDiv = $("#gifs");
     for (let i = 0; i < gifs.length; i++) {
       if (gifs.ratings !== "r" && gifs.ratings !== "pg-13") {
-        var stillImgUrl = gifs[i].images.fixed_width.url;
-        console.log(stillImgUrl);
+        var animatedImgUrl = gifs[i].images.fixed_width.url;
+        console.log(animatedImgUrl);
 
         var newGif = $("<img class='card-img-top'>");
-        newGif.attr("src", stillImgUrl);
+        newGif.attr("src", animatedImgUrl);
+        newGif.attr('data-state', 'animated');
         gifDiv.append(newGif);
       }
     }
